@@ -11,17 +11,17 @@
 
       ! 定数
       ! ====== input ======
-      imax      = 301 ! 周方向 奇数が望ましい
+      imax      = 401 ! 周方向 dnstyRateで割り切れる数+1 がいいかも
       jmax      = 301 ! 半径方向
       rmin      = 5.0d-3 ! 球の半径 [m]
-      rHead     = rmin*4.d0 ! 球前方最大半径 [m]
-      rTail     = rmin*20.d0 ! Wake 側の最大半径 [m]
-      rTop      = rmin*5.d0 ! 頂点の半径
-      dnstyRate = 3.d0 ! 頭と後ろの密度比
-      drFactor  = 200.d0 ! 最小格子幅の係数
+      rHead     = rmin*2.d0 ! 球前方最大半径 [m]
+      rTail     = rmin*16.d0 ! Wake 側の最大半径 [m]
+      rTop      = rmin*4.d0 ! 頂点の半径
+      dnstyRate = 8.d0 ! 頭と後ろの密度比
+      drFactor  = 400.d0 ! 最小格子幅の係数
       ! ====== input ここまで ======
 
-      iTop      = nint(dble(imax)/dnstyRate) ! 頂点でのi
+      iTop      = nint(dble(imax)/(dnstyRate+1)) ! 頂点でのi
       drmin     = rmin/drFactor ! 最小格子幅
       pi        = dacos(-1.0d0)
 
